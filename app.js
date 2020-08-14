@@ -56,6 +56,14 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //netstat -tulpn for linux terminal to list ports or just use sudo lsof -t -i:8080 to get permission and pid and then sudo kill -9 <pid>
-app.listen(4444, process.env.IP, function(){
-	console.log("The YelpCapm Server Started");
-});
+//PROD ENV
+app.listen(process.env.PORT, process.env.IP, function(){
+	console.log("The CatCamp Server Started");
+})
+
+
+//DEV ENV
+// app.listen(4444, process.env.IP, function(){
+// 	console.log("The YelpCapm Server Started");
+// });
+
