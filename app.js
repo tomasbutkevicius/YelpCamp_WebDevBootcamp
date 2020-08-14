@@ -20,7 +20,8 @@ var indexRoutes      = require("./routes/index.js");
 // seedDB();
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect("mongodb://localhost/yelp_camp_v12_deployed", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+// mongoose.connect("mongodb://localhost/yelp_camp_v12_deployed", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+mongoose.connect("mongodb+srv://dbTomas:dbpassword@cluster0.1rbz9.mongodb.net/cat_camp?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
