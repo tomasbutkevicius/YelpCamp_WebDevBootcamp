@@ -17,11 +17,11 @@ var campgroundRoutes = require("./routes/campgrounds.js");
 var indexRoutes      = require("./routes/index.js");
 
 //seed the database
-// seedDB();
-
+// seedDB(); 
+console.log(process.env.DATABASEURL);
 mongoose.set('useFindAndModify', false);
-// mongoose.connect("mongodb://localhost/yelp_camp_v12_deployed", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
-mongoose.connect("mongodb+srv://dbTomas:dbpassword@cluster0.1rbz9.mongodb.net/cat_camp?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+mongoose.connect(process.env.DATABASEURL, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+// mongoose.connect("mongodb+srv://dbTomas:dbpassword@cluster0.1rbz9.mongodb.net/cat_camp?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
