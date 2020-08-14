@@ -16,7 +16,7 @@ var commentRoutes    = require("./routes/comments.js");
 var campgroundRoutes = require("./routes/campgrounds.js");
 var indexRoutes      = require("./routes/index.js");
 var url              = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-
+var port             = process.env.PORT        || 4444;
 //seed the database
 // seedDB(); 
 mongoose.set('useFindAndModify', false);
@@ -56,10 +56,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 //netstat -tulpn for linux terminal to list ports or just use sudo lsof -t -i:8080 to get permission and pid and then sudo kill -9 <pid>
 //PROD ENV
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(port, process.env.IP, function(){
 	console.log("The CatCamp Server Started");
 })
-
 
 //DEV ENV
 // app.listen(4444, process.env.IP, function(){
